@@ -6,7 +6,7 @@ from playsound import playsound
 
 class GetVaccineSlots:
     def get_slots(self, age_group, district_list):
-        given_date = self.get_dates()
+        given_date = self.get_dates
         data_list = []
         header = {"accept": "application/json", "Accept-Language": "hi_IN"}
         file_object = open('CowinWin.txt', 'a')
@@ -51,10 +51,10 @@ class GetVaccineSlots:
         file_object.close()
         return str(data_list)
 
-    @staticmethod
-    def get_dates():
+    @property
+    def get_dates(self) -> list:
         dt = datetime.date.today()
-        days = 40
+        days = 7
         dates = []
         for i in range(days):
             td = datetime.timedelta(days=i)
