@@ -1,10 +1,10 @@
-FROM python:3
-MAINTAINER nithinhemachandran@gmail.com
-WORKDIR /usr/src/app
+FROM python:3.8-slim-buster
 
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+WORKDIR /python-docker
+
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
 
 COPY . .
 
-CMD [ "python", "./hello.py" ]
+CMD [ "python3", "-m", "flask", "run", "--host=0.0.0.0"]
